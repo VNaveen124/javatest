@@ -81,8 +81,8 @@ jobs:
               docker run -d -p 80:80 --name test-nginx nginx
 
 
-              docker pull naveenkumarvelanati/hello-world-java:latest
+              docker pull hello-world-java:latest
               docker stop hello-world-java || true
               docker rm hello-world-java || true
-              docker run -d -p 8080:8080 --name hello-world-java naveenkumarvelanati/hello-world-java:latest
+              docker run -d -p 8080:8080 --name hello-world-java hello-world-java:latest
 
