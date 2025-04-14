@@ -9,7 +9,7 @@ on:
       - main
 
 env:
-  DOCKER_IMAGE_NAME: naveenkumarvelanati/loginpage_java:latest
+  DOCKER_IMAGE_NAME: naveenkumarvelanati/ccitbasic:latest
 
 jobs:
   build:
@@ -81,7 +81,8 @@ jobs:
               docker run -d -p 80:80 --name test-nginx nginx
 
 
-              docker pull loginpage_java:latest
+              docker pull ccitbasic:latest
               docker stop loginpage_java || true
-              docker rm loginpage_java || true
-              docker run -d -p 8080:8080 --name loginpage_java loginpage_java:latest
+              docker ccitbasic || true
+              docker rm ccitbasic || true
+              docker run -d -p 8080:8080 --name ccitbasic naveenkumarvelanati/ccitbasic:latest
