@@ -66,10 +66,11 @@ jobs:
     needs: docker
 
     steps:
-      # Step 1: Deploy the application
       - name: Deploy the application
+        env:
+          SERVER_KEY: ${{ secrets.SERVER_KEY }}
         run: |
-          ssh -o StrictHostKeyChecking=no ${{ secrets.SSH_USERNAME }}@${{ secrets.SERVER_IP }} << 'EOF'
+          ssh -i "$SERVER_KEY" -o StrictHostKeyChecking=no ${{ secrets.SSH_USERNAME }}@${{ secrets.SERVER_IP }} << 'EOF'
           docker pull $DOCKER_IMAGE_NAME
           docker stop hello-world-java || true
           docker rm hello-world-java || true
