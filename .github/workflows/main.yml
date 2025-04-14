@@ -9,7 +9,7 @@ on:
       - main
 
 env:
-  DOCKER_IMAGE_NAME: naveenkumarvelanati/LoginPage_java:latest
+  DOCKER_IMAGE_NAME: naveenkumarvelanati/loginpage_java:latest
 
 jobs:
   build:
@@ -81,7 +81,7 @@ jobs:
               docker run -d -p 80:80 --name test-nginx nginx
 
 
-              docker pull LoginPage_java:latest
-              docker stop LoginPage_java || true
-              docker rm LoginPage_java || true
-              docker run -d -p 8080:8080 --name LoginPage_java LoginPage_java:latest
+              docker pull loginpage_java:latest
+              docker stop loginpage_java || true
+              docker rm loginpage_java || true
+              docker run -d -p 8080:8080 --name loginpage_java loginpage_java:latest
