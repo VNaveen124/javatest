@@ -8,7 +8,7 @@ WORKDIR /app
 COPY . /app
 
 # Compile the HelloWorld.java file
-RUN javac HelloWorld.java
+RUN javac LoginPage.java
 
 # Run the application
-CMD ["java", "HelloWorld"]
+CMD ["java", "LoginPage"]
