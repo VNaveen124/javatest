@@ -1,1 +1,1 @@
-Deploying Basic Java Application with Help of Docker
+Creating and Deploying Basic Java Application with Help of Docker
