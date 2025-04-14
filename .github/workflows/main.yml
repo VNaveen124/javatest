@@ -66,13 +66,14 @@ jobs:
     needs: docker
 
     steps:
-      - name: Deploy the application
-        env:
-          SERVER_KEY: ${{ secrets.SERVER_KEY }}
-        run: |
-          ssh -i "$SERVER_KEY" -o StrictHostKeyChecking=no ${{ secrets.SSH_USERNAME }}@${{ secrets.SERVER_IP }} << 'EOF'
-          docker pull $DOCKER_IMAGE_NAME
-          docker stop hello-world-java || true
-          docker rm hello-world-java || true
-          docker run -d --name hello-world-java $DOCKER_IMAGE_NAME
-          EOF
+      - name: Deploy to Server
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.SERVER_IP }}
+          username: ${{ secrets.SSH_USERNAME }}
+          key: ${{ secrets.SERVER_KEY }}
+          script: |
+            docker pull $DOCKER_IMAGE_NAME
+            docker stop hello-world-java || true
+            docker rm hello-world-java || true
+            docker run -d --name hello-world-java $DOCKER_IMAGE_NAME
