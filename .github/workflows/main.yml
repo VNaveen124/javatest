@@ -82,7 +82,6 @@ jobs:
 
 
               docker pull ccitbasic:latest
-              docker stop loginpage_java || true
-              docker ccitbasic || true
+              docker stop ccitbasic || true
               docker rm ccitbasic || true
               docker run -d -p 8080:8080 --name ccitbasic naveenkumarvelanati/ccitbasic:latest
