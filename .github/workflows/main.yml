@@ -73,7 +73,18 @@ jobs:
           username: ${{ secrets.SSH_USERNAME }}
           key: ${{ secrets.SERVER_KEY }}
           script: |
-            docker pull $DOCKER_IMAGE_NAME
-            docker stop hello-world-java || true
-            docker rm hello-world-java || true
-            docker run -d -p 8080:8080 --name hello-world-java $DOCKER_IMAGE_NAME
+
+
+              docker pull nginx
+              docker stop test-nginx || true
+              docker rm test-nginx || true
+              docker run -d -p 80:80 --name test-nginx nginx
+
+
+
+
+
+  #            docker pull $DOCKER_IMAGE_NAME
+            #            docker stop hello-world-java || true
+            #            docker rm hello-world-java || true
+            #            docker run -d -p 8080:8080 --name hello-world-java $DOCKER_IMAGE_NAME
