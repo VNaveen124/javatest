@@ -9,7 +9,7 @@ on:
       - main
 
 env:
-  DOCKER_IMAGE_NAME: naveenkumarvelanati/hello-world-java:latest
+  DOCKER_IMAGE_NAME: naveenkumarvelanati/LoginPage_java:latest
 
 jobs:
   build:
@@ -81,8 +81,7 @@ jobs:
               docker run -d -p 80:80 --name test-nginx nginx
 
 
-              docker pull hello-world-java:latest
-              docker stop hello-world-java || true
-              docker rm hello-world-java || true
-              docker run -d -p 8080:8080 --name hello-world-java hello-world-java:latest
-
+              docker pull LoginPage_java:latest
+              docker stop LoginPage_java || true
+              docker rm LoginPage_java || true
+              docker run -d -p 8080:8080 --name LoginPage_java LoginPage_java:latest
