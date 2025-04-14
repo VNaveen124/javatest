@@ -9,7 +9,7 @@ on:
       - main
 
 env:
-  DOCKER_IMAGE_NAME: naveenkumarvelanati/hello-world-java
+  DOCKER_IMAGE_NAME: naveenkumarvelanati/hello-world-java:latest
 
 jobs:
   build:
@@ -76,4 +76,4 @@ jobs:
             docker pull $DOCKER_IMAGE_NAME
             docker stop hello-world-java || true
             docker rm hello-world-java || true
-            docker run -d --name hello-world-java $DOCKER_IMAGE_NAME
+            docker run -d -p 8080:8080 --name hello-world-java $DOCKER_IMAGE_NAME
