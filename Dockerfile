@@ -1,14 +1,14 @@
-# Use an official OpenJDK runtime as the base image
-FROM openjdk:17-jdk
+# Use an OpenJDK image as the base image
+FROM openjdk:17
 
 # Set the working directory inside the container
 WORKDIR /app
 
-# Copy the current directory contents into the container at /app
+# Copy current directory contents into the container at /app
 COPY . /app
 
-# Compile the HelloTeam.java file
-RUN javac HelloTeam.java
+# Compile the HelloWorld.java file
+RUN javac HelloWorld.java
 
-# Define the command to run the application
-CMD ["java", "HelloTeam"]
+# Run the application
+CMD ["java", "HelloWorld"]
